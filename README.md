@@ -48,6 +48,7 @@ And run the following commands:
 ## If time wasn't a constraint
 
 - I would add the unit test suites and integration test for the app, i18n library to handle the translation and localization of the app, and the Cypress to write the end-to-end test for the app.
+- Adding the edit functionality, so that the user can click on the item, the data will be populated in the form, and the user can edit the data and save it.
 
 ## Test difficulties
 
