@@ -5,6 +5,7 @@ import CustomInput from '@/components/CustomInput';
 import { Box, Button, Grid } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { usePostCreateClient } from '@/hooks/api';
+import { useSnackbar } from '@/contexts/SnackBarContext';
 
 interface StepTwoFormData {
 	email: string;
@@ -21,6 +22,7 @@ const FormStepTwo: React.FC<StepOneProps> = ({ onFinish, onBackClick }) => {
 
 	const { handleSubmit, control } = useForm<StepTwoFormData>();
 	const { createClient, isCreateClientSuccess } = usePostCreateClient();
+	const { showSnackbar } = useSnackbar();
 
 	const onSubmit = (data: StepTwoFormData) => {
 		const completedData = { ...formData, ...data };
@@ -30,8 +32,9 @@ const FormStepTwo: React.FC<StepOneProps> = ({ onFinish, onBackClick }) => {
 	useEffect(() => {
 		if (isCreateClientSuccess) {
 			onFinish();
+			showSnackbar('Client created successfully', 'success');
 		}
-	}, [isCreateClientSuccess, onFinish]);
+	}, [isCreateClientSuccess, onFinish, showSnackbar]);
 
 	const phonePattern = /^\+\d{10,12}$/;
 	const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './contexts/ModalContext';
 import { SearchProvider } from './contexts/SearchContext';
+import { SnackbarProvider } from './contexts/SnackBarContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<SearchProvider>
-				<ModalProvider>
-					<App />
-				</ModalProvider>
+				<SnackbarProvider>
+					<ModalProvider>
+						<App />
+					</ModalProvider>
+				</SnackbarProvider>
 			</SearchProvider>
 		</BrowserRouter>
 	</React.StrictMode>
