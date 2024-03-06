@@ -7,9 +7,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import ClientRow from './ClientRow';
 import { useGetClients } from '@/hooks/api';
+import { useSearch } from '@/contexts/SearchContext';
 
 export default function BasicTable() {
 	const { clientsData } = useGetClients();
+	const { filterContacts } = useSearch();
+
+	const filteredClient = filterContacts(clientsData ?? []);
+
 	return (
 		<TableContainer component={Paper} sx={{ maxWidth: '100%' }}>
 			<Table sx={{ minWidth: 400 }} aria-label='simple table'>
@@ -21,11 +26,11 @@ export default function BasicTable() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{clientsData?.map((client) => (
+					{filteredClient?.map((client) => (
 						<ClientRow key={client.id} client={client} />
 					))}
-					{!clientsData ||
-						(!clientsData.length && (
+					{!filteredClient ||
+						(!filteredClient.length && (
 							<TableRow sx={{ padding: 3 }}>
 								<TableCell component='th' scope='row'>
 									No clients

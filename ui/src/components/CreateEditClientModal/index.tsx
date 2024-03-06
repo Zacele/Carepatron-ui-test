@@ -61,6 +61,7 @@ const steps = ['Personal details', 'Contact details'];
 const CreateEditClientModal: React.FC = () => {
 	const [currentStep, setCurrentStep] = React.useState(0);
 	const { isModalOpen, closeModal } = useModal();
+
 	const fullHeight = useMediaQuery('(max-width:300px)');
 
 	const handleClose = () => {

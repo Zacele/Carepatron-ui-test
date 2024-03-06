@@ -5,14 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './contexts/ModalContext';
+import { SearchProvider } from './contexts/SearchContext';
+import { SnackbarProvider } from './contexts/SnackBarContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<ModalProvider>
-				<App />
-			</ModalProvider>
+			<SearchProvider>
+				<SnackbarProvider>
+					<ModalProvider>
+						<App />
+					</ModalProvider>
+				</SnackbarProvider>
+			</SearchProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );
