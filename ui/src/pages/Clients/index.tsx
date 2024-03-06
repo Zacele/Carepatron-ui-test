@@ -7,23 +7,29 @@ import { styled } from '@mui/material';
 import { useModal } from '@/contexts/ModalContext';
 import CreateEditClientModal from '@/components/CreateEditClientModal';
 
-const CreateButton = styled(Button)({
-	marginLeft: '16px',
-	backgroundColor: '#3F5DF9',
-	color: 'white',
-	textTransform: 'none',
-	'&:hover': {
-		backgroundColor: '#3350cc',
-	},
+const CreateButton = styled(Button)(({ theme }) => {
+	return {
+		backgroundColor: theme.palette.primary.main,
+		color: '#fff',
+		'&:hover': {
+			backgroundColor: theme.palette.primary.main,
+		},
+	};
 });
 
-const Container = styled(Box)({
+const Container = styled(Box)(({ theme }) => ({
 	display: 'flex',
+	flexDirection: 'row',
 	alignItems: 'center',
 	justifyContent: 'space-between',
 	paddingTop: '16px',
 	backgroundColor: '#f5f5f5',
-});
+	gap: '16px',
+	[theme.breakpoints.down('sm')]: {
+		flexDirection: 'column',
+		alignItems: 'stretch',
+	},
+}));
 
 function Clients() {
 	const { openModal } = useModal();
@@ -34,7 +40,7 @@ function Clients() {
 			</Typography>
 			<CreateEditClientModal />
 			<Container>
-				<Box display={'flex'} alignItems={'flex-start'} flex={1} marginRight={2}>
+				<Box display={'flex'} alignItems={'flex-start'} flex={1}>
 					<SearchInput placeholder='Search clients...' />
 				</Box>
 				<CreateButton variant='contained' onClick={openModal}>

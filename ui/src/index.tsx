@@ -7,18 +7,48 @@ import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './contexts/ModalContext';
 import { SearchProvider } from './contexts/SearchContext';
 import { SnackbarProvider } from './contexts/SnackBarContext';
+import { ThemeProvider, createTheme } from '@mui/material';
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: `${process.env.REACT_APP_PRIMARY_COLOR}`,
+		},
+	},
+	components: {
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					textTransform: 'none',
+					height: `${process.env.REACT_APP_BUTTON_HEIGHT}`,
+				},
+			},
+		},
+		MuiStepper: {
+			styleOverrides: {
+				root: {
+					'& .MuiStepLabel-root .Mui-completed': {
+						fill: `${process.env.REACT_APP_SVG_FINISH_COLOR}`,
+					},
+				},
+			},
+		},
+	},
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<SearchProvider>
-				<SnackbarProvider>
-					<ModalProvider>
-						<App />
-					</ModalProvider>
-				</SnackbarProvider>
-			</SearchProvider>
+			<ThemeProvider theme={theme}>
+				<SearchProvider>
+					<SnackbarProvider>
+						<ModalProvider>
+							<App />
+						</ModalProvider>
+					</SnackbarProvider>
+				</SearchProvider>
+			</ThemeProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );

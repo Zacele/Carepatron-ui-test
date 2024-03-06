@@ -65,7 +65,7 @@ const FormStepOne: React.FC<StepOneProps> = ({ onNext }) => {
 			</Box>
 			<Grid container style={{ marginTop: 60 }} justifyContent='flex-end'>
 				<Grid item>
-					<Button sx={{ height: '40px' }} variant='contained' color='primary' type='submit'>
+					<Button variant='contained' color='primary' type='submit'>
 						Continue
 					</Button>
 				</Grid>

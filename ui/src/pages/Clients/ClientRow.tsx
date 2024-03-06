@@ -1,4 +1,4 @@
-import { TableCell, TableRow } from '@mui/material';
+import { TableCell, TableRow, useTheme } from '@mui/material';
 
 export interface IProps {
 	client: IClient;
@@ -6,7 +6,7 @@ export interface IProps {
 
 export default function ClientRow({ client }: IProps) {
 	const { id, firstName, lastName, email, phoneNumber } = client;
-
+	const theme = useTheme();
 	return (
 		<TableRow
 			key={id}
@@ -18,7 +18,7 @@ export default function ClientRow({ client }: IProps) {
 				},
 			}}
 		>
-			<TableCell component='th' scope='row' style={{ color: '#3F5DF9' }}>
+			<TableCell component='th' scope='row' style={{ color: theme.palette.primary.main }}>
 				{firstName} {lastName}
 			</TableCell>
 			<TableCell>{phoneNumber}</TableCell>

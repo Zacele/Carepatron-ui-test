@@ -87,24 +87,14 @@ const FormStepTwo: React.FC<StepOneProps> = ({ onFinish, onBackClick }) => {
 				/>
 			</Box>
 
-			<Grid container style={{ marginTop: 60 }} spacing={2}>
+			<Grid container style={{ marginTop: 60 }}>
 				<Grid item xs={6}>
-					<Button
-						variant='text'
-						onClick={onBackClick}
-						sx={{ height: '40px', textTransform: 'none' }}
-						startIcon={<ArrowBackIcon />}
-					>
+					<Button variant='text' onClick={onBackClick} startIcon={<ArrowBackIcon />}>
 						Back
 					</Button>
 				</Grid>
 				<Grid item xs={6} display={'flex'} justifyContent='flex-end'>
-					<Button
-						type='submit'
-						variant='contained'
-						color='primary'
-						sx={{ height: '40px', textTransform: 'none', padding: '0 24px' }}
-					>
+					<Button type='submit' variant='contained' color='primary' sx={{ padding: '0 24px' }}>
 						Create client
 					</Button>
 				</Grid>
