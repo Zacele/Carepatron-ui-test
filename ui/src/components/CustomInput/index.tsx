@@ -17,7 +17,6 @@ const CustomInput: React.FC<CustomInputProps> = ({ labelId, labelText, error, he
 				<InputLabel shrink={false} htmlFor={labelId}>
 					<Typography>{labelText}</Typography>
 				</InputLabel>
-
 				<TextField
 					id={labelId}
 					fullWidth

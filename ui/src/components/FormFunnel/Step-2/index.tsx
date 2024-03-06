@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useFunnelContext } from '@/contexts/FunnelFormContext';
 import CustomInput from '@/components/CustomInput';
 import { Box, Button, Grid } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { usePostCreateClient } from '@/hooks/api';
 
 interface StepTwoFormData {
 	email: string;
@@ -16,14 +17,21 @@ interface StepOneProps {
 }
 
 const FormStepTwo: React.FC<StepOneProps> = ({ onFinish, onBackClick }) => {
-	const { updateFormData } = useFunnelContext();
+	const { formData } = useFunnelContext();
 
 	const { handleSubmit, control } = useForm<StepTwoFormData>();
+	const { createClient, isCreateClientSuccess } = usePostCreateClient();
 
 	const onSubmit = (data: StepTwoFormData) => {
-		updateFormData(data);
-		onFinish();
+		const completedData = { ...formData, ...data };
+		createClient(completedData);
 	};
+
+	useEffect(() => {
+		if (isCreateClientSuccess) {
+			onFinish();
+		}
+	}, [isCreateClientSuccess, onFinish]);
 
 	const phonePattern = /^\+\d{10,12}$/;
 	const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
