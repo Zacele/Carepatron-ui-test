@@ -6,7 +6,7 @@ runme:
 
 # Khoa Le - Senior Front end engineer submission
 
-One paragraph of project description goes here. Explain the purpose of your project and what problem it solves. You can also mention what technologies besides React you used in the project.
+This is the front-end project submission for the senior front-end engineer position at [Carepatron](https://www.carepatron.com/). The project is a simple web application that allows users to search for clients, add a client into a list. The application is built using React and TypeScript.
 
 ## Table of Contents
 
@@ -63,7 +63,7 @@ And run the following commands:
 
 - If you needed to change something in the future (size/color of buttons), how easy would it be?
 
-   - Since I have extracted the color and size to the environment variables, it's very easy to change the color and size of the buttons in the future. Just applied the change into the `.env.local` file and the change will be applied to the whole app.
+   - Since I have extracted the color and size to the environment variables, also utilize the `ThemeProvider` for Material-UI,it's very easy to change the color and size of the buttons within the application in the future. Just applied the change into the `.env.local` file, restart the app, (In production, we can just apply the new env variable on to the CI/CD, restart the service and the change will be applied to the whole app.) 
 
 - How does this look on different devices?
 
@@ -87,7 +87,7 @@ And run the following commands:
 
    - How is state managed as the codebase grows?
 
-      - I have used React-Context and React-Query and extract the logic into custom hooks so that can be re-use in multiple components. And I also use the `useReducer` hook to manage the state in the app. So the state is managed in a single place and can be easily scaled.
+      - I have used React-Context and React-Query and extract the logic into custom hooks so that can be re-use in multiple components. And I also can use the `useReducer` hook to manage the state in the app. So the state is managed in a single place and can be easily scaled.
 
    - How can we support multiple countries?
 
