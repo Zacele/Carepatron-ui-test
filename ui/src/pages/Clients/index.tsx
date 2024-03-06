@@ -6,7 +6,6 @@ import SearchInput from '@/components/SearchInput';
 import { styled } from '@mui/material';
 import { useModal } from '@/contexts/ModalContext';
 import CreateEditClientModal from '@/components/CreateEditClientModal';
-import { useSnackbar } from '@/contexts/SnackBarContext';
 
 const CreateButton = styled(Button)({
 	marginLeft: '16px',
@@ -28,7 +27,6 @@ const Container = styled(Box)({
 
 function Clients() {
 	const { openModal } = useModal();
-	const { showSnackbar } = useSnackbar();
 	return (
 		<Page>
 			<Typography variant='h4' sx={{ textAlign: 'start' }}>
@@ -39,10 +37,7 @@ function Clients() {
 				<Box display={'flex'} alignItems={'flex-start'} flex={1} marginRight={2}>
 					<SearchInput placeholder='Search clients...' />
 				</Box>
-				<CreateButton
-					variant='contained'
-					onClick={() => showSnackbar('Client created successfully', 'success')}
-				>
+				<CreateButton variant='contained' onClick={openModal}>
 					Create new client
 				</CreateButton>
 			</Container>
