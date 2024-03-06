@@ -13,3 +13,5 @@ interface IApplicationState {
 interface SearchInputProps {
 	placeholder: string;
 }
+
+type IPayloadClient = Omit<IClient, 'id'>;
