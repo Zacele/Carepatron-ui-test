@@ -20,7 +20,8 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					textTransform: 'none',
-					height: `${process.env.REACT_APP_BUTTON_HEIGHT}`,
+					borderRadius: '8px',
+					height: `${process.env.REACT_APP_BUTTON_RADIUS}`,
 				},
 			},
 		},
