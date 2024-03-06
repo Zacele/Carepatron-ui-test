@@ -87,7 +87,7 @@ const FormStepTwo: React.FC<StepOneProps> = ({ onFinish, onBackClick }) => {
 				/>
 			</Box>
 
-			<Grid container style={{ marginTop: 60 }} spacing={2}>
+			<Grid container style={{ marginTop: 60 }}>
 				<Grid item xs={6}>
 					<Button variant='text' onClick={onBackClick} startIcon={<ArrowBackIcon />}>
 						Back

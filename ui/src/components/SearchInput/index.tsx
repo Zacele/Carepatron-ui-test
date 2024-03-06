@@ -6,18 +6,23 @@ import { styled } from '@mui/material';
 import { useSearch } from '@/contexts/SearchContext';
 import { debounce } from '@/utils';
 
-const CustomSearchInput = styled(TextField)({
-	width: '60%',
-	backgroundColor: 'white',
-	borderRadius: 4,
-	'& .MuiOutlinedInput-root': {
-		height: '40px',
-		alignItems: 'center',
-	},
-	'& .MuiInputBase-input': {
-		height: '40px',
-		padding: '0 14px',
-	},
+const CustomSearchInput = styled(TextField)(({ theme }) => {
+	return {
+		width: '60%',
+		backgroundColor: 'white',
+		borderRadius: 4,
+		'& .MuiOutlinedInput-root': {
+			height: '40px',
+			alignItems: 'center',
+		},
+		'& .MuiInputBase-input': {
+			height: '40px',
+			padding: '0 14px',
+		},
+		[theme.breakpoints.down('sm')]: {
+			width: '100%',
+		},
+	};
 });
 
 const SearchInput: React.FC<SearchInputProps> = ({ placeholder }) => {

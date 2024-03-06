@@ -12,7 +12,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: '#3F5DF9',
+			main: `${process.env.REACT_APP_PRIMARY_COLOR}`,
 		},
 	},
 	components: {
@@ -20,7 +20,16 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					textTransform: 'none',
-					height: '40px',
+					height: `${process.env.REACT_APP_BUTTON_HEIGHT}`,
+				},
+			},
+		},
+		MuiStepper: {
+			styleOverrides: {
+				root: {
+					'& .MuiStepLabel-root .Mui-completed': {
+						fill: `${process.env.REACT_APP_SVG_FINISH_COLOR}`,
+					},
 				},
 			},
 		},

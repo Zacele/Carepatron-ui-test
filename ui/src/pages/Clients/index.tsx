@@ -9,7 +9,6 @@ import CreateEditClientModal from '@/components/CreateEditClientModal';
 
 const CreateButton = styled(Button)(({ theme }) => {
 	return {
-		marginLeft: '16px',
 		backgroundColor: theme.palette.primary.main,
 		color: '#fff',
 		'&:hover': {
@@ -18,13 +17,19 @@ const CreateButton = styled(Button)(({ theme }) => {
 	};
 });
 
-const Container = styled(Box)({
+const Container = styled(Box)(({ theme }) => ({
 	display: 'flex',
+	flexDirection: 'row',
 	alignItems: 'center',
 	justifyContent: 'space-between',
 	paddingTop: '16px',
 	backgroundColor: '#f5f5f5',
-});
+	gap: '16px',
+	[theme.breakpoints.down('sm')]: {
+		flexDirection: 'column',
+		alignItems: 'stretch',
+	},
+}));
 
 function Clients() {
 	const { openModal } = useModal();
@@ -35,7 +40,7 @@ function Clients() {
 			</Typography>
 			<CreateEditClientModal />
 			<Container>
-				<Box display={'flex'} alignItems={'flex-start'} flex={1} marginRight={2}>
+				<Box display={'flex'} alignItems={'flex-start'} flex={1}>
 					<SearchInput placeholder='Search clients...' />
 				</Box>
 				<CreateButton variant='contained' onClick={openModal}>
