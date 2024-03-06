@@ -13,7 +13,7 @@ One paragraph of project description goes here. Explain the purpose of your proj
 - [Getting Started](#getting-started)
 - [Built With](#built-with)
 - [If time wasn't a constraint](#if-time-wasnt-a-constraint)
-- [Test difficulties][#test-difficulties]
+- [Test difficulties](#test-difficulties)
 - [Answer the extra questions](#answer-the-extra-questions)
 
 ## Getting Started
