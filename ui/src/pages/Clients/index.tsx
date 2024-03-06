@@ -7,14 +7,15 @@ import { styled } from '@mui/material';
 import { useModal } from '@/contexts/ModalContext';
 import CreateEditClientModal from '@/components/CreateEditClientModal';
 
-const CreateButton = styled(Button)({
-	marginLeft: '16px',
-	backgroundColor: '#3F5DF9',
-	color: 'white',
-	textTransform: 'none',
-	'&:hover': {
-		backgroundColor: '#3350cc',
-	},
+const CreateButton = styled(Button)(({ theme }) => {
+	return {
+		marginLeft: '16px',
+		backgroundColor: theme.palette.primary.main,
+		color: '#fff',
+		'&:hover': {
+			backgroundColor: theme.palette.primary.main,
+		},
+	};
 });
 
 const Container = styled(Box)({
